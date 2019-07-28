@@ -5,6 +5,10 @@ public class Label {
     private String name;
     private Task task;
 
+    public Label(String name) {
+        this.name = name;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
