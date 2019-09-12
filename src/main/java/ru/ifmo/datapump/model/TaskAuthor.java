@@ -1,46 +1,18 @@
 package ru.ifmo.datapump.model;
 
+import lombok.Data;
+
+@Data
 public class TaskAuthor {
     private Long id;
     private String name;
-    private String mail;
+    private String email;
     private TaskManager taskManager;
 
-    public TaskAuthor(String name, String mail, TaskManager taskManager) {
-        this.name = name;
-        this.mail = mail;
-        this.taskManager = taskManager;
-    }
-
-    public void setId(Long id) {
+    public TaskAuthor(Long id, String name, String mail, TaskManager taskManager) {
         this.id = id;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public void setTaskManager(TaskManager taskManager) {
+        this.email = mail;
         this.taskManager = taskManager;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public TaskManager getTaskManager() {
-        return taskManager;
     }
 }

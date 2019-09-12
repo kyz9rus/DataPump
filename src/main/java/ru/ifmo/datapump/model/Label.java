@@ -1,35 +1,14 @@
 package ru.ifmo.datapump.model;
 
+import lombok.Data;
+
+@Data
 public class Label {
-    private int id;
+    private Long id;
     private String name;
-    private Task task;
 
-    public Label(String name) {
-        this.name = name;
-    }
-
-    public void setId(int id) {
+    public Label(Long id, String name) {
         this.id = id;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setTask(Task task) {
-        this.task = task;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public Task getTask() {
-        return task;
     }
 }
