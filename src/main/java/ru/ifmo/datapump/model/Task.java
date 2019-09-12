@@ -1,99 +1,38 @@
 package ru.ifmo.datapump.model;
 
+import lombok.Data;
 import ru.ifmo.datapump.model.enums.TaskStatus;
 
-import java.sql.Timestamp;
+import java.sql.Date;
+import java.util.List;
 
+@Data
 public class Task {
     private Long id;
     private String name;
     private String description;
-    private Timestamp createDate;
+    private Date createDate;
+    private Date deadlineDate;
     private TaskStatus status;
-    private Timestamp deadlineDate;
-    private int priority;
-    private int severity;
-//    private Long handlerId;//?
+    private Integer priority;
+    private Integer severity;
+    //    private Long handlerId; // на кого захандлена
     private TaskAuthor taskAuthor;
     private TaskManager taskManager;
+    private List<Label> labels;
 
-    public void setId(Long id) {
+    public Task(Long id, String name, String description, Date createDate, Date deadlineDate, TaskStatus status,
+                Integer priority, Integer severity, TaskAuthor taskAuthor, TaskManager taskManager, List<Label> labels) {
         this.id = id;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setCreateDate(Timestamp createDate) {
         this.createDate = createDate;
-    }
-
-    public void setStatus(TaskStatus status) {
-        this.status = status;
-    }
-
-    public void setDeadlineDate(Timestamp deadlineDate) {
         this.deadlineDate = deadlineDate;
-    }
-
-    public void setPriority(int priority) {
+        this.status = status;
         this.priority = priority;
-    }
-
-    public void setSeverity(int severity) {
         this.severity = severity;
-    }
-
-    public void setTaskAuthor(TaskAuthor taskAuthor) {
         this.taskAuthor = taskAuthor;
-    }
-
-    public void setTaskManager(TaskManager taskManager) {
         this.taskManager = taskManager;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Timestamp getCreateDate() {
-        return createDate;
-    }
-
-    public TaskStatus getStatus() {
-        return status;
-    }
-
-    public Timestamp getDeadlineDate() {
-        return deadlineDate;
-    }
-
-    public int getPriority() {
-        return priority;
-    }
-
-    public int getSeverity() {
-        return severity;
-    }
-
-    public TaskAuthor getTaskAuthor() {
-        return taskAuthor;
-    }
-
-    public TaskManager getTaskManager() {
-        return taskManager;
+        this.labels = labels;
     }
 }

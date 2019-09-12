@@ -1,48 +1,22 @@
 package ru.ifmo.datapump.model;
 
+import lombok.Data;
+import ru.ifmo.datapump.model.enums.TaskManagerType;
+
+@Data
 public class TaskManager {
     private Long id;
     private String name;
     private String description;
-    private String TaskManagerType;//?
-//    private int projectId;
+    private TaskManagerType taskManagerType;
+    private String projectId; // -> node_id
 
 
-    public TaskManager(String name, String description, String taskManagerType) {
-        this.name = name;
-        this.description = description;
-        TaskManagerType = taskManagerType;
-    }
-
-    public void setId(Long id) {
+    public TaskManager(Long id, String name, String description, TaskManagerType taskManagerType, String projectId) {
         this.id = id;
-    }
-
-    public void setName(String name) {
         this.name = name;
-    }
-
-    public void setDescription(String description) {
         this.description = description;
-    }
-
-    public void setTaskManagerType(String taskManagerType) {
-        TaskManagerType = taskManagerType;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public String getTaskManagerType() {
-        return TaskManagerType;
+        this.taskManagerType = taskManagerType;
+        this.projectId = projectId;
     }
 }
