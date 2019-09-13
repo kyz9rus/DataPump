@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 
 @Data
 public class Activity {
-    private Long id;
+    private long id;
     private Timestamp createDate;
     private String activityType;//?
     private String oldValue;//?

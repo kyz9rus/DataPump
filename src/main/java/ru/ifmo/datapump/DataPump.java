@@ -1,7 +1,9 @@
 package ru.ifmo.datapump;
 
-import org.json.simple.parser.ParseException;
-import ru.ifmo.datapump.exception.NotFoundException;
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import ru.ifmo.datapump.exception.CustomJsonException;
+import ru.ifmo.datapump.exception.CustomParseException;
 import ru.ifmo.datapump.model.Label;
 import ru.ifmo.datapump.model.Task;
 import ru.ifmo.datapump.model.TaskManager;
@@ -11,6 +13,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class DataPump {
+
+    private final static Logger log = LogManager.getLogger(DataPump.class);
 
     private static ParseService parseService;
 
@@ -31,15 +35,9 @@ public class DataPump {
             List<Task> tasks = parseService.parseTasks(apiUrl, taskManager);
             List<Label> labels = parseService.parseLabels(apiUrl);
 
-            System.out.println(); // suspend there and see data values
-        } catch (ParseException e) {
-            System.out.println("Error during parsing");
-            e.printStackTrace();
-        } catch (NotFoundException e1) {
-            System.out.println("Incorrect URL");
-            e1.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(); // suspend there and check data values
+        } catch (CustomParseException | CustomJsonException e) {
+            log.error(e);
         }
     }
 }

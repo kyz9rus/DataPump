@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class TaskAuthor {
-    private Long id;
+    private long id;
     private String name;
     private String email;
     private TaskManager taskManager;
 
-    public TaskAuthor(Long id, String name, String mail, TaskManager taskManager) {
+    public TaskAuthor(long id, String name, String mail, TaskManager taskManager) {
         this.id = id;
         this.name = name;
         this.email = mail;
